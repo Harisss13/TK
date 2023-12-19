@@ -1,4 +1,8 @@
 import {BrowserRouter, Routes, Route, useNavigate} from "react-router-dom";
+import '../src/App.css'
+import 'react-bootstrap';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import UserList from "./components/UserList";
 // import AddUser from "./components/AddUser";
 // import EditUser from "./components/EditUser";
@@ -24,10 +28,6 @@ import Fasilitas from "./pages/Fasilitas";
 import Profil from "./pages/Profil";
 import GaleriUser from "./pages/GaleriUser";
 import NavbarComponent from "./pages/NavbarComponent";
-import '../src/App.css'
-import 'react-bootstrap';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct";
 import ProductList from "./components/ProductList";
@@ -43,6 +43,7 @@ function App() {
     return(
       <BrowserRouter>
       <NavbarComponent/>
+
       <Routes>
 
         {/* ADMIN */}

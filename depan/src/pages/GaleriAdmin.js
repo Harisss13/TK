@@ -19,8 +19,15 @@ import img15 from '../img/40.jpg';
 import img16 from '../img/41.jpg';
 import img17 from '../img/42.jpg';
 import img18 from '../img/43.jpg';
+import Layout from '../admin/Layout';
+import { useAuth } from '../components/AuthContext';
+import { useNavigate, Link } from 'react-router-dom';
+
 
 const GaleriAdmin = () => {
+  const { isLoggedIn, login, logout } = useAuth();
+  const navigate = useNavigate();
+
  const images = [
   { url: img1 , caption: 'Kegiatan di dalam Kelas' },
   { url: img2 , caption: 'Olahraga Pagi' },
@@ -80,29 +87,66 @@ const GaleriAdmin = () => {
     setGallery(newGallery);
  };
 
- return (
-    <div className="container-image">
-      {gallery.map((image, index) => (
-        <div className="image" key={index} style={{ backgroundImage: `url('${image.url}')` }}>
-          <div className="caption">{image.caption}</div>
-          <button
-                 className="btn btn-warning"
-                 onClick={() => handleEditGallery(index)}
+ if(isLoggedIn) {
+   return (
+    <Layout>
+    <div className="container mt-5">
+      <div className="row">
+        {gallery.map((image, index) => (
+          <div className="col-md-4 mb-3" key={index}>
+            <div className="card">
+              <img className="card-img-top img-fluid" src={image.url} alt={image.caption} />
+              <div className="card-body">
+                <h5 className="card-title">{image.caption}</h5>
+                <button
+                  className="btn btn-warning mr-2"
+                  onClick={() => handleEditGallery(index)}
                 >
-                 Edit
+                  Edit
                 </button>
-          <button onClick={() => handleDelete(index)}>Delete</button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDelete(index)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <form type="file" onSubmit={handleAdd} className="mt-3">
+        <div className="row">
+          <div className="col-md-6">
+            <input
+              type="text"
+              value={nama}
+              onChange={(e) => setNama(e.target.value)}
+              placeholder="Caption"
+              className="form-control"
+            />
+          </div>
+          <div className="col-md-6">
+            <button type="submit" className="btn btn-primary">
+              Tambah
+            </button>
+          </div>
         </div>
-      ))}
-      <form type="file" onSubmit={handleAdd}>
-        <input type="text" value={nama} onChange={(e) => setNama(e.target.value)} placeholder="Caption" />
-        <button type="submit">Tambah</button>
       </form>
-      <div {...getRootProps()} className="galeri-upload">
+      <div {...getRootProps()} className="galeri-upload mt-3">
         <input {...getInputProps()} />
       </div>
     </div>
- );
+  </Layout>
+   );
+ } else {
+  return (
+    <div className="d-flex flex-column align-items-center justify-content-center bg-warning display-6 vh-100">
+        <h1 className="text-center p-3">Anda harus login terlebih dahulu untuk mengakses halaman ini.</h1>
+        <Link to="/login" className="btn btn-primary btn-lg mt-3">Login</Link>
+      </div>
+    );
+ }
 };
 
 export default GaleriAdmin;

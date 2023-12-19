@@ -56,7 +56,7 @@ export const getUserById2 = async(req, res) =>{
 export const createUser = async(req, res) =>{
     // Daftar FORM
     try {
-        await Daftar.create(req.body);
+        await Daftar2Model.create(req.body);
         res.status(201).json({msg: "User Created"});
     } catch (error) {
         console.log(error.message);
@@ -77,7 +77,7 @@ export const createUser2 = async(req, res) =>{
 // UPDATE
 export const updateUser = async(req, res) =>{
     try {
-        await Daftar.update(req.body,{
+        await Daftar2Model.update(req.body,{
             where:{
                 id: req.params.id
             }
@@ -106,7 +106,7 @@ export const updateUser2 = async(req, res) =>{
 // Delete
 export const deleteUser = async(req, res) =>{
     try {
-        await Daftar.destroy({
+        await Daftar2Model.destroy({
             where:{
                 id: req.params.id
             }

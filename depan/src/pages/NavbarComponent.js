@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { navLinks } from '../data/index';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import kb from '../img/kb.png';
 
 const NavbarComponent = () => {
+
+
+
     const [changeColor, setChangeColor] = useState(false);
     const changeBackgroundColor = () => {
         if(window.screenY > 10) {
@@ -44,6 +47,9 @@ const NavbarComponent = () => {
                                 );
                             })}
                         </Nav>
+                        <div className="text-center">
+                            <Link to="/login" className="btn btn-outline-warning rounded-1">Login</Link>
+                        </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

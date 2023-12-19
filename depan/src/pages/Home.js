@@ -9,6 +9,8 @@ import Image17 from '../img/about-pic.png';
 import Music from '../img/music.png';
 import Image1 from '../img/about us.png';
 import Card from 'react-bootstrap/Card';
+import Footer from './Footer';
+import NavbarComponent from './NavbarComponent';
 
 const Home = () => {
   let navigate = useNavigate();
@@ -17,7 +19,7 @@ const Home = () => {
     { month: 'Agustus', theme: 'Indonesiaku', src: Agustus},
     { month: 'September', theme: 'Mitigasi Bencana', src: September},
   ];
-  return ( 
+  return (
     <div className="home">
       <header className="w-100 min-vh-100 d-flex align-items-center">
         <Container>
@@ -50,7 +52,7 @@ const Home = () => {
                   <h5 style={{fontSize: '25px', color: '#E9768F'}}>Berakhlak Mulia, Berkarakter Unggul, Perkembangan dan Kebutuhan Anak</h5>
                   <h5 style={{fontSize: '25px', color: '#E9768F'}}>Terpenuhi saat Bermain Sambil Belajar!</h5>
                 </div>
-                <button className="primary-lihat rounded-5 btn-lg fw-bold mt-4" style={{ fontSize: '18px', padding: '10px 20px', width: '280px', marginLeft: '250px' }} onClick={() => navigate("/profil")}>
+                <button className="primary-lihat rounded-5 btn-lg fw-bold mt-4" style={{ fontSize: '18px', padding: '20px', width: '280px', marginLeft: '10px' }} onClick={() => navigate('/profil')}>
                   Lihat Selengkapnya 
                 <i className="fa-solid fa-chevron-right ms-3"></i></button>
                 <img style={{ width: '400px', marginLeft: '200px', position: 'absolute', right: '0' }} src={Music} alt="music-img"/>
@@ -94,9 +96,7 @@ const Home = () => {
 
       {/* KONTAK */}
       <section className="contact" id="contact">
-        <h1 className="heading-contact text-center fw-bold mt-5 mb-5" style={{color: '#F9BA60'}}>
-          <span >Kontak</span>
-        </h1>
+        <h1 className="heading-contact text-center fw-bold mt-5 mb-5" style={{color: '#F9BA60'}}>        </h1>
         <div className="icons-container">
         <div className="icons">
         <a href="https://maps.google.com/?q=Kp.+Sukasirna+RT+004/RW+002+Ds.+Sukahaji+Kec.+Tegalwaru+Kab.+Purwakarta+Jawa+Barat" target="_blank" rel="noopener noreferrer"><i className="fas fa-map-marker-alt" /></a>
@@ -124,8 +124,8 @@ const Home = () => {
             <p>087897195246</p>
           </div>
         </div>
-      </section> 
-
+      </section>
+      <Footer />
 
     </div>
   );

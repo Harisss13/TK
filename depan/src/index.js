@@ -5,6 +5,7 @@ import "bulma/css/bulma.css";
 import { AuthProvider } from '../src/components/AuthContext';
 import { Provider } from 'react-redux';
 import {store} from './app/store'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,6 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { useAuth } from "../components/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Juli from '../img/juli.jpg';
 import Agustus from '../img/agustus.jpg';
@@ -14,9 +15,12 @@ import Maret from '../img/maret.jpg';
 import April from '../img/april.jpg';
 import Mei from '../img/mei.jpg';
 import Juni from '../img/juni.jpg';
+import Layout from '../admin/Layout';
   
   function KurikulumAdmin (){
-    
+    const { isLoggedIn, login, logout } = useAuth();
+    const navigate = useNavigate();
+
     const data = [
         { month: 'Juli', theme: 'Sekolah Asyik', image: Juli, smt: 'Semester 1'},
         { month: 'Agustus', theme: 'Indonesiaku', image: Agustus, smt: 'Semester 1'},
@@ -31,8 +35,11 @@ import Juni from '../img/juni.jpg';
         { month: 'Mei', theme: 'Rekreasi', image: Mei, smt: 'Semester 2'},
         { month: 'Juni', theme: 'Cita-cita', image: Juni, smt: 'Semester 2'},
       ];
+  
+  if(isLoggedIn) {
     return (
-      <Container className="mt-4">
+      <Layout>
+              <Container className="mt-4">
         <Row>
           <Col>
             <div className="p-4 pt-4">
@@ -42,7 +49,7 @@ import Juni from '../img/juni.jpg';
         </Row>
         <Row className="justify-content-end">
           <Col xs={4} className="d-flex justify-content-end align-items-center mb-3">
-            <Link to="/Kurikulum-Create">
+            <Link to="/admin/kurikulum/create">
               <Button className="primary" style={{ fontSize: '18px', padding: '6px', width: '90px' }}>Tambah</Button>
             </Link>
           </Col>
@@ -57,7 +64,7 @@ import Juni from '../img/juni.jpg';
                   <Card.Title className="fw-bold">{item.month}</Card.Title>
                   <Card.Text>Tema: {item.theme}</Card.Text>
                   <div className="d-flex justify-content-around ">
-                    <Link to="/Kurikulum-Edit">
+                    <Link to="/admin/kurikulum/edit">
                       <Button variant="warning" style={{ fontSize: '14px', padding: '6px', width: '90px' }}>Edit</Button>
                     </Link>
                     <Button variant="danger" style={{ fontSize: '14px', padding: '6px', width: '90px' }}>Hapus</Button>
@@ -68,7 +75,17 @@ import Juni from '../img/juni.jpg';
           ))}
         </Row>
       </Container>
+      </Layout>
     );
+  } else {
+    return (
+    <div className="d-flex flex-column align-items-center justify-content-center bg-warning display-6 vh-100">
+        <h1 className="text-center p-3">Anda harus login terlebih dahulu untuk mengakses halaman ini.</h1>
+        <Link to="/login" className="btn btn-primary btn-lg mt-3">Login</Link>
+      </div>
+    );
+}
+
   };
   
   export default KurikulumAdmin;

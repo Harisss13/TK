@@ -1,21 +1,25 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import Img1 from '../img/1.png';
 import Img2 from '../img/2.jpg';
 import Img3 from '../img/3.jpg';
 import Img4 from '../img/4.jpg';
 import Img5 from '../img/5.jpg';
 import { Link } from 'react-router-dom';
+import Layout from '../admin/Layout';
+import { Col, Card, Button, Row } from 'react-bootstrap';
 
 const FasilitasAdmin = () => {
-    return <div>
+    return (
+      <Layout>
+        <div>
       <div className="App">
       <header className="App-header">
         <h1>Fasilitas KB Bunga Mekar 4</h1>
         <h7>Temukan fasilitas yang mendukung perkembangan anak-anak!</h7>
       </header>
-      <section className="facilities-container">
-        <Card>
+
+      <Row lg={2}>
+
+        <Card className='flex'>
           <img src={Img1} alt="hero-img" />
           <Card.Body>
             <Button variant="primary">Gedung Sekolah</Button>
@@ -69,15 +73,17 @@ const FasilitasAdmin = () => {
             </Card.Text>
           </Card.Body>
         </Card>
-        <button className="primary-lihat rounded-5 btn-lg fw-bold" style={{ fontSize: '18px', padding: '15px 30px' }}>
-        <Link to="/kelolaFasilitas" style={{ color: 'white', textDecoration: 'none' }}>
+      </Row>
+      <button className="primary-lihat rounded-5 btn-lg fw-bold" style={{ fontSize: '18px', padding: '15px 30px' }}>
+        <Link to="/admin/fasilitas/kelola" style={{ color: 'white', textDecoration: 'none' }}>
           Kelola Fasilitas
         </Link>
         <i className="fa-solid fa-chevron-right ms-3"></i>
-      </button>
-      </section>
+        </button>
       </div>
-    </div>;
+    </div>
+      </Layout>
+    )
   };
   
 export default FasilitasAdmin;

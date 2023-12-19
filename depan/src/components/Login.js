@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <div className="daftar">
-      <h2>Login Admin</h2>
+      <h2 className='text-center'>Login Admin</h2>
       <form onSubmit={loginAdmin}>
         <div>
           <Form.Group className="mb-3" controlId="nik">

@@ -1,20 +1,16 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../logo.png";
-import { useDispatch, useSelector } from "react-redux";
-import { LogOut, reset } from "../features/authSlice";
+import { useAuth } from "../components/AuthContext";
+
+
 
 const Navbar = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
+  const { isLoggedIn, login, logout } = useAuth();
 
-  const logout = () => {
-    dispatch(LogOut());
-    dispatch(reset());
-    navigate("/");
+  const keluar = () => {
+    logout();
   };
-
   return (
     <div>
       <nav
@@ -45,9 +41,6 @@ const Navbar = () => {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <button onClick={logout} className="button is-light">
-                  Log out
-                </button>
               </div>
             </div>
           </div>

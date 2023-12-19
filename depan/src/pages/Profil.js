@@ -13,10 +13,14 @@ import Image12 from '../img/activities5.png';
 import Image13 from '../img/activities6.png';
 import Image16 from '../img/teacher4.png';
 import Image17 from '../img/about-pic.png';
+import Footer from './Footer';
+import NavbarComponent from './NavbarComponent';
+
+
 
 const Profil = () => {
     return (
-      <div>
+    <div>
         {/*tabel identitas sekolah start*/}
         <h1 className="heading-about text-center mt-3"> <span>About</span> Us</h1>
         <div className="school-info text-center" data-aos="fade-up" data-aos-duration="1000">
@@ -149,9 +153,9 @@ const Profil = () => {
           </div>
         </section>
         {/* activities section ends */}
+        <Footer/>
         
-
-        </div>
+    </div>
     );
 };
   export default Profil;

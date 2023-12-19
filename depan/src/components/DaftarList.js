@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from "../admin/Layout";
 
 
@@ -42,13 +43,13 @@ function DaftarList() {
 
   return (
     <Layout>
-      <div className="columns mt-5">
-      <div className="column p-5">
-        <Link to={`add`} className="button is-success">
+      <div className="column mt-5">
+      <div className="column">
+        <Link to={`add`} className="button is-success m-5">
           Add New
         </Link>
-        <button className="button is-small is-danger" onClick={keluar}>Logout</button>
-        <table className="table is-striped is-fullwidth">
+        <button className="button is-danger m-5" onClick={keluar}>Logout</button>
+        <table className="table table-responsive">
           <thead>
             <tr>
               <th>No</th>
@@ -107,11 +108,13 @@ function DaftarList() {
     
     )
   } else {
-    alert("Login terlebih dahulu");
-    // console.log(setLoggedin);
-    navigate('/login');
-    
-  }
+    return (
+    <div className="d-flex flex-column align-items-center justify-content-center bg-warning display-6 vh-100">
+        <h1 className="text-center p-3">Anda harus login terlebih dahulu untuk mengakses halaman ini.</h1>
+        <Link to="/login" className="btn btn-primary btn-lg mt-3">Login</Link>
+      </div>
+    );
+}
 }
 
 export default DaftarList

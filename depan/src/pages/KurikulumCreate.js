@@ -1,11 +1,13 @@
 import { Form, Button } from 'react-bootstrap';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Layout from '../admin/Layout';
 
 const KurikulumCreate = () => {
   return (
-    <div className="daftar" style={{marginTop:'60px'}}>
-        <Link to="/Kurikulum-Admin">
+    <Layout>
+      <div className="daftar">
+        <Link to="/admin/kurikulum">
             <Button variant="secondary" className="primary-kembali rounded-5 btn-sm" style={{ fontSize: '14px', padding: '8px', width: '100px' }}>Kembali</Button>
         </Link>
       <h2 className="formulir fw-bold">Tambah Kurikulum</h2>
@@ -31,6 +33,7 @@ const KurikulumCreate = () => {
       </Button>
     </Form>
     </div>
+    </Layout>
   ); 
 }
   
