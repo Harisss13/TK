@@ -19,7 +19,7 @@ const Login = () => {
       // Check if login was successful
       if (response.data.success) {
         console.log('Login successful');
-        navigate('/daftarlist');
+        navigate('/admin');
         login(); // Call the login function from useAuth
       } else {
         // Handle unsuccessful login

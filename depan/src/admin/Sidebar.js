@@ -18,17 +18,28 @@ const Sidebar = () => {
   return (
     <div>
       <aside className="menu pl-2 has-shadow">
-        <p className="menu-label">General</p>
+        <p className="menu-label">Menu</p>
         <ul className="menu-list">
           <li>
-            <NavLink to={"/admin"}>
-              <IoHome /> Dashboard
-            </NavLink>
+            <NavLink to={"/admin"}>Dashboard</NavLink>
           </li>
           <li>
-            <NavLink to={"/daftarlist"}>
-              <IoPricetag /> List Pendaftaran
-            </NavLink>
+            <NavLink to={"/admin/daftarlist"}>List Pendaftaran</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/aktivitas"}>Aktivitas</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/kurikulum"}>Kurikulum</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/fasilitas"}>Fasilitas</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/profil"}>Profil</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/galeri"}>Galeri</NavLink>
           </li>
         </ul>
         {user && user.role === "admin" && (

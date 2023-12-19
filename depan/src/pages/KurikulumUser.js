@@ -15,6 +15,8 @@ import April from '../img/april.jpg';
 import Mei from '../img/mei.jpg';
 import Juni from '../img/juni.jpg';
 import Music from '../img/music.png';
+import Footer from './Footer';
+
   
   const KurikulumUser = () => {
     const data = [
@@ -53,6 +55,7 @@ import Music from '../img/music.png';
           ))}
         </Row>
       </Container>
+      <Footer />
       </div>
     );
   };

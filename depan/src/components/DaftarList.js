@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
+import Layout from "../admin/Layout";
 
 
 function DaftarList() {
@@ -40,7 +41,8 @@ function DaftarList() {
   if(isLoggedIn) {
 
   return (
-    <div className="columns mt-5">
+    <Layout>
+      <div className="columns mt-5">
       <div className="column p-5">
         <Link to={`add`} className="button is-success">
           Add New
@@ -101,6 +103,8 @@ function DaftarList() {
           </table>
         </div>
       </div>
+    </Layout>
+    
     )
   } else {
     alert("Login terlebih dahulu");

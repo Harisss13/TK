@@ -18,6 +18,8 @@ import img16 from '../img/41.jpg';
 import img17 from '../img/42.jpg';
 import img18 from '../img/43.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './Footer';
+
 // import '../dist/css/galeriadmin.css';
 //import './App.css';
 
@@ -51,6 +53,7 @@ const GaleriUser = () => {
           <div className="caption">{image.caption}</div>
         </div>
       ))}
+      <Footer />
     </div>
  );
 };

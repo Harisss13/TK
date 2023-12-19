@@ -48,16 +48,16 @@ function App() {
         {/* ADMIN */}
         <Route path="/login" element={<Login/>}/>
         <Route path="/admin" element={<Dashboard/>}/>
-        <Route path="activities-admin" element={<ActivitiesAdmin/>}/>
-        <Route path="kurikulum-admin" element={<KurikulumAdmin/>}/>
-        <Route path="kurikulum-create" element={<KurikulumCreate/>}/>
-        <Route path="kurikulum-edit" element={<KurikulumEdit/>}/>
-        <Route path="fasilitas-admin" element={<FasilitasAdmin/>} />
-        <Route path="fasilitas-kelola" element={<FasilitasKelola/>} />
-        <Route path="daftarlist" element={<DaftarList/>}/>
-        <Route path="profil-education" element={<EducationAdmin/>}/>
-        <Route path="profil-teacher" element={<TeacherAdmin/>} />
-        <Route path="galeri-admin" element={<GaleriAdmin/>}/>
+        <Route path="/admin/aktivitas" element={<ActivitiesAdmin/>}/>
+        <Route path="/admin/kurikulum" element={<KurikulumAdmin/>}/>
+        <Route path="/admin/kurikulum/create" element={<KurikulumCreate/>}/>
+        <Route path="/admin/kurikulum/edit" element={<KurikulumEdit/>}/>
+        <Route path="/admin/fasilitas" element={<FasilitasAdmin/>} />
+        <Route path="/admin/fasilitas/kelola" element={<FasilitasKelola/>} />
+        <Route path="/admin/daftarlist" element={<DaftarList/>}/>
+        <Route path="/admin/profil" element={<EducationAdmin/>}/>
+        <Route path="/admin/profil/guru" element={<TeacherAdmin/>} />
+        <Route path="/admin/galeri" element={<GaleriAdmin/>}/>
 
 
 
@@ -73,7 +73,7 @@ function App() {
 
 
         {/* USER */}
-        <Route path="kurikulum" element={<KurikulumUser/>}/>
+        <Route path="/kurikulum" element={<KurikulumUser/>}/>
         <Route path="/kurikulum/:month" element={<KurikulumDetail/>}/>
         <Route path="/" element={<Home/>}/>
         <Route path="pendaftaran" element={<Pendaftaran/>}/>
@@ -82,7 +82,6 @@ function App() {
         <Route path="profil" element={<Profil/>}/>
 
       </Routes>
-      <Footer />
     </BrowserRouter>
     );
   

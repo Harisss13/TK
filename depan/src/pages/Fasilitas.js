@@ -5,6 +5,7 @@ import Img2 from '../img/2.jpg';
 import Img3 from '../img/3.jpg';
 import Img4 from '../img/4.jpg';
 import Img5 from '../img/5.jpg';
+import Footer from './Footer';
 
 const Fasilitas = () => {
     return <div>
@@ -71,7 +72,9 @@ const Fasilitas = () => {
 
       </section>
       </div>
+      <Footer />
     </div>;
+    
   };
   
 export default Fasilitas;
