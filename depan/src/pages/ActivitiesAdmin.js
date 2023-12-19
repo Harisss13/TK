@@ -1,54 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
-import { useDropzone } from 'react-dropzone';
+import { Card, Button, Row, Col } from 'react-bootstrap';
 import { useAuth } from "../components/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import Image8 from '../img/activities1.png';
-import Image9 from '../img/activities2.png';
-import Image10 from '../img/activities3.png';
-import Image11 from '../img/activities4.png';
-import Image12 from '../img/activities5.png';
-import Image13 from '../img/activities6.png';
 import Layout from '../admin/Layout';
 import axios from 'axios';
-// import { getAktiv } from '../../../belakang/controllers/ProductController';
+
+
 
 function ActivitiesAdmin() {
   const { isLoggedIn, login, logout } = useAuth();
-
-  const [activities, setActivities] = useState([
-    { id: 1, title: 'Belajar&Bermain', image: Image8 },
-    { id: 2, title: 'Olahraga&Bermain', image: Image9 },
-    { id: 3, title: 'Membuat Karya', image: Image10 },
-    { id: 4, title: 'Pramuka Siaga', image: Image11 },
-    { id: 5, title: 'Pelepasan Wisuda', image: Image12 },
-    { id: 6, title: 'Simulasi Manasik', image: Image13 },
-  ]);
-
-  // const [newActivity, setNewActivity] = useState({
-  //   title: '',
-  //   image: null,
-  // });
-
-  // const onDrop = (acceptedFiles) => {
-  //   const image = acceptedFiles[0];
-  //   setNewActivity({ ...newActivity, image });
-  // };
-
-  // const { getRootProps, getInputProps } = useDropzone({
-  //   accept: 'image/*',
-  //   onDrop,
-  // });
-
-  // const handleAddActivity = () => {
-  //   setActivities([...activities, { ...newActivity, id: activities.length + 1 }]);
-  //   setNewActivity({ title: '', image: null });
-  // };
-
-  // const handleDeleteActivity = (id) => {
-  //   const updatedActivities = activities.filter((activity) => activity.id !== id);
-  //   setActivities(updatedActivities);
-  // };
 
   // POST Aktivitas
   const [title, setTitle] = useState("");
@@ -74,31 +34,35 @@ function ActivitiesAdmin() {
         },
       });
       setTitle('');
+      setFile(null);
+      setPreview('');
+      alert("Galeri telah ditambahkan")
     } catch (error) {
       console.log(error);
     }
   };
 
   // GET Aktiv
-  // const [aktiv, setAktiv] = useState([]);
+  const [aktiv, setAktiv] = useState([]);
 
-  // useEffect(() => {
-  //   getAktiv();
-  // }, []);
+  useEffect(() => {
+    getAktiv();
+  }, []);
 
-  // const getAktiv = async () => {
-  //   const response = await axios.get("http://localhost:4000/aktiv");
-  //   setAktiv(response.data);
-  // };
+  const getAktiv = async () => {
+    const response = await axios.get("http://localhost:4000/aktiv");
+    setAktiv(response.data);
+  };
 
-  // const deleteAktiv = async (aktivId) => {
-  //   try {
-  //     await axios.delete(`http://localhost:4000/aktiv/${aktivId}`);
-  //     getAktiv();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  // delete
+  const deleteAktiv = async (aktivId) => {
+    try {
+      await axios.delete(`http://localhost:4000/aktiv/${aktivId}`);
+      getAktiv();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   if(isLoggedIn) {
     return (
@@ -115,20 +79,26 @@ function ActivitiesAdmin() {
 
 
         <br/>
-        <div className="admin-activities-container">
-          {activities.map((activity) => (
-            <Card key={activity.id} className="activity-card text-center">
-              <Card.Img variant="top" src={activity.image} alt="activity-img" />
-              <Card.Body>
-                <Card.Title>{activity.title}</Card.Title>
-                <Button variant="danger">
-                  Delete
-                </Button>
-              </Card.Body>
-            </Card>
-          ))}
-        </div>
+        <Row className="admin-activities-container">
+      {aktiv.map((activity) => (
+        <Col key={activity.id} xs={12} md={6} lg={4}>
+          <Card className="activity-card text-center">
+            <Card.Img variant="top" src={activity.url} alt="activity-img" className="img-fluid" />
+            <Card.Body>
+              <Card.Title>{activity.name}</Card.Title>
+              <Button variant="danger">
+                <a onClick={() => deleteAktiv(activity.id)}>
+                Delete
+                </a>
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      ))}
+    </Row>
 
+
+            {/* TAMBAH AKTIVITAS */}
         <div className="admin-add-activity">
           <h2 className="fw-bold text-center mt-5 mb-3">Tambah Aktivitas Baru</h2>
           <form onSubmit={saveAktiv}>
@@ -141,9 +111,9 @@ function ActivitiesAdmin() {
           </div>
           
           <div className="field">
-            <label className="label">Image</label>
+            <label className="label">Pilih Gambar</label>
             <div className="control">
-              <div className="file">
+              <div className="file d-flex justify-content-center">
                 <label className="file-label">
                   <input
                     type="file"

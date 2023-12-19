@@ -244,3 +244,26 @@ export const getAktivById = async(req, res)=>{
         console.log(error.message);
     }
 }
+
+// DELETE Aktivitas
+export const deleteAktiv = async(req, res)=>{
+    const product = await Aktiv.findOne({
+        where:{
+            id : req.params.id
+        }
+    });
+    if(!product) return res.status(404).json({msg: "No Data Found"});
+
+    try {
+        const filepath = `./public/images/${product.image}`;
+        fs.unlinkSync(filepath);
+        await Aktiv.destroy({
+            where:{
+                id : req.params.id
+            }
+        });
+        res.status(200).json({msg: "Product Deleted Successfuly"});
+    } catch (error) {
+        console.log(error.message);
+    }
+}

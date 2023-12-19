@@ -3,11 +3,17 @@ import Img2 from '../img/2.jpg';
 import Img3 from '../img/3.jpg';
 import Img4 from '../img/4.jpg';
 import Img5 from '../img/5.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Layout from '../admin/Layout';
 import { Col, Card, Button, Row } from 'react-bootstrap';
+import { useAuth } from '../components/AuthContext';
+
 
 const FasilitasAdmin = () => {
+  const { isLoggedIn, login, logout } = useAuth();
+  const navigate = useNavigate();
+
+  if(isLoggedIn) {
     return (
       <Layout>
         <div>
@@ -83,7 +89,15 @@ const FasilitasAdmin = () => {
       </div>
     </div>
       </Layout>
-    )
+    );
+  } else {
+    return (
+    <div className="d-flex flex-column align-items-center justify-content-center bg-warning display-6 vh-100">
+        <h1 className="text-center p-3">Anda harus login terlebih dahulu untuk mengakses halaman ini.</h1>
+        <Link to="/login" className="btn btn-primary btn-lg mt-3">Login</Link>
+      </div>
+    );
+}
   };
   
 export default FasilitasAdmin;

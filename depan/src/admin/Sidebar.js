@@ -17,7 +17,7 @@ const Sidebar = () => {
     <div>
       <aside className="menu pl-2 has-shadow">
         <p className="menu-label" >Menu</p>
-        <ul className="menu-list">
+        <ul className="menu-list" >
           <li>
             <NavLink to={"/admin"}>Dashboard</NavLink>
           </li>
@@ -38,6 +38,9 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink to={"/admin/galeri"}>Galeri</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admin/guru"}>Guru</NavLink>
           </li>
         </ul>
 
