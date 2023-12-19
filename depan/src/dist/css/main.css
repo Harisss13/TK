@@ -1,0 +1,120 @@
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --primary-color: #F6F8FD;
+    --secondary-color: #E9768F;
+    --more-color: #F9BA60;
+    --other-color: #FF5337;
+    --color-text: #000000;
+    --navbar-color: #F6F8FD;
+    --navbar-color-text: #000000;
+}
+
+/* STYLE NAVBAR */
+
+.navbar{
+    position: fixed;
+    padding: 15px 0 15px 0;
+    width: 100%;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    z-index: 9999;
+}
+
+.navbar.color-active {
+    background-color: var(--navbar-color);
+    padding: 20px 0 20px 0;
+    border-bottom: 2px solid #e9768fbe;
+}
+
+.navbar .nav-link a{
+    padding: 5px 10px 5px 10px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--navbar-color-text);
+}
+
+.navbar .nav-link a:hover{
+    color: var(--more-color);
+}
+
+.navbar .nav-link .active{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.navbar .nav-link .active:hover{
+    color: var(--navbar-color);
+}
+
+/* STYLE HOME PAGE HEADER*/
+header{
+    background: #E9768F;
+    background: -webkit-linear-gradient(to left, #E9768F, #F9BA60);
+    background: linear-gradient(to left, #E9768F, #F9BA60);
+}
+
+.home .header-box h1{
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.home .header-box h1 span{
+    font-weight: 700;
+}
+
+.home .header-box p{
+    line-height: 2;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.home .header-box img{
+    width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+    .home .header-box{
+        padding-top: 8rem;
+    }
+    .home .header-box img{
+        width: 400px;
+        display: block;
+        margin-inline: auto;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .home .header-box h1{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .home .header-box h1{
+        font-size: 2.4rem;
+    }
+    .home .header-box p{
+        font-size: 14px;
+    }
+    .home .header-box img{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .home .header-box h1{
+        font-size: 2rem;
+    }
+    .home .header-box p{
+        font-size: 12px;
+    }
+}
+
+/* STYLE HOMEPAGE PROFIL*/

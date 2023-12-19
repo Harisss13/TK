@@ -1,0 +1,1443 @@
+*{
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --primary-color: #F6F8FD;
+  --secondary-color: #E9768F;
+  --more-color: #F9BA60;
+  --other-color: #FF5337;
+  --color-text: #000000;
+  --navbar-color: #F6F8FD;
+  --navbar-color-text: #000000;
+}
+
+/* STYLE NAVBAR */
+
+.navbar{
+  padding: 15px 0 15px 0;
+  width: 100%;
+  transition: all .2s ease;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  z-index: 9999;
+}
+
+.navbar.scrolled {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.color-active {
+  background-color: var(--navbar-color);
+  padding: 20px 0 20px 0;
+  border-bottom: 2px solid #e9768fbe;
+}
+
+.navbar .nav-link a{
+  padding: 5px 10px 5px 10px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--navbar-color-text);
+}
+
+.navbar .nav-link a:hover{
+  color: var(--more-color);
+}
+
+.navbar .nav-link .active{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.navbar .nav-link .active:hover{
+  color: var(--navbar-color);
+}
+
+/* STYLE PROFIL USER */
+/* about section */
+.about {
+background-color: #E9768F;
+padding: 40px 0;
+animation-name: fadeInUp;
+animation-duration: 1s;
+}
+
+.about .heading-about {
+font-size: 3.5rem;
+color: white;
+}
+
+.about .row-about {
+display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about .row-about .image-school {
+
+animation-name: fadeInUp;
+animation-duration: 1s;
+width: 40%;
+display: block;
+margin-inline: auto;
+margin-block-start: 20px;
+height: 40%;
+}
+
+
+.about .row-about .content {
+width: 45%;
+color: white;
+}
+.content .h3 {
+font-size: 3.9rem;
+font-weight: 900;
+
+}
+@media screen and (min-width: 768px) {
+.about .row-about {
+  flex-direction: row-reverse; /* Reverse the order of flex items */
+}
+
+.about .image-school img {
+  width: 100%;
+  order: 2; /* Change the order of the image */
+}
+
+.about .content {
+  width: 45%;
+  order: 1; /* Change the order of the content */
+  margin-left: 70px;
+}
+}
+/* SchoolInfo*/
+
+.school-info {
+/* background-image: url('src/assets/img/bg.png'); */
+text-align: center;
+background-position: center;
+background-size: cover;
+}
+
+.school-info p{
+font-size: 1.1rem;
+line-height: 1.8;
+color: var(--white);
+}
+
+.heading-about {
+font-size: 3.9rem;
+font-weight: 600;
+color: palevioletred;
+}
+
+.heading-about:hover {
+transform: scale(1.1);
+}
+.row-about {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.h1 {
+font-size: 5.7rem;
+font-weight: 600;
+color: palevioletred;
+}
+
+.image-about {
+margin-top: 20px; /* Sesuaikan dengan kebutuhan */
+}
+
+/* Optional: Agar gambar tetap di tengah jika lebar gambar lebih kecil dari lebar container */
+.image-about img {
+max-width: 30%;
+height: auto;
+}
+.image-about img:hover {
+transform: scale(1.1);
+}
+
+/* education */
+.education {
+background: #fff;
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+.education .heading-about {
+text-align: center;
+font-size: 3.2rem;
+font-weight: 600;
+color: #333;
+}
+
+.education .heading-about:hover{
+transform: scale(1.1);
+}
+
+.education .box-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+gap: 1.5rem;
+margin: 20px 0;
+}
+
+.education .box-container .box {
+background: white;
+border-radius: 2rem;
+box-shadow: var(--box-shadow);
+outline: .1rem solid rgba(0, 0, 0, .1);
+outline-offset: -1rem;
+overflow: hidden;
+}
+
+.education .box-container .box:hover img {
+transform: scale(1.1);
+}
+
+.education .box-container .box:nth-child(odd) {
+background: #E9768F;
+}
+
+.education .box-container .box:nth-child(2) {
+background: #F9BA60;
+}
+
+.education .box-container .box h3 {
+font-size: 2.1rem;
+color: var(--white);
+line-height: 1.8;
+padding-top: 3rem;
+padding-left: 2rem;
+}
+
+.education .box-container .box p {
+font-size: 1.1rem;
+line-height: 1.8;
+color: var(--white);
+padding: 1rem 2rem;
+}
+
+.education .box-container .box img {
+width: 90%;
+height: 255px;
+object-fit: cover;
+}
+
+.teacher {
+
+background-color: solid  #E9768F ;/* Pink border color */;
+background-position: center;
+background-size: cover;
+margin-bottom: 90px;
+margin-top: 90px;
+}
+
+.teacher .heading-about {
+text-align: center;
+font-size: 3.2rem;
+font-weight: 600;
+color: #333;
+}
+
+.teacher .heading-about:hover{
+transform: scale(1.1);
+}
+
+.teacher .box-container {
+display: flex;
+}
+
+.teacher .box-container .box {
+background: var(--white);
+padding: 5rem 2rem;
+text-align: center;
+box-shadow: var(--box-shadow);
+border-radius: 2rem;
+padding: 3rem 2rem;
+text-align: center;
+box-shadow: var(--box-shadow);
+border-radius: 2rem;
+outline: .1rem solid rgba(0, 0, 0, .1);
+outline-offset: -1rem;
+
+}
+
+.teacher .box-container .box:hover img {
+transform: scale(1.1);
+}
+.teacher .box-container .box img {
+width: 100%;
+}
+
+.teacher .box-container .box h3 {
+font-size: 1.7rem;
+text-align: center;
+font-weight: 500;
+color: var(--color-text);
+}
+
+.teacher .box-container .box p {
+font-size: 1.5rem;
+color: var(--light-color);
+margin-bottom: 1rem;
+}
+
+.teacher .box-container .box .share {
+display: flex;
+flex-direction: row; 
+padding-left: 15%;
+}
+
+.teacher .box-container .box .share i {
+height: 2.5rem;
+width: 2.5rem;
+line-height: 2.5rem;
+font-size: 1.5rem;
+border-radius: 0.3rem;
+background-color:white;
+color: var(--white);
+border: 0.1rem solid palevioletred;
+margin-left: 0.5rem;
+margin-right: 0.5rem;
+box-shadow: var(--box-shadow); 
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.teacher .box-container .box .share i:hover {
+color: pink;
+border: 0.1rem solid var(--orange);
+background-color: var(--orange);
+border: 0.1rem solid pink;
+box-shadow: 0 2px 8px #333;
+}
+
+/* activities */
+
+.activities {
+margin-top: 50px;
+}
+.activities .heading-about {
+text-align: center;
+font-size: 3.2rem;
+font-weight: 600;
+color: #333;
+}
+.activities .heading-about:hover{
+transform: scale(1.1);
+}
+.activities .box-container {
+display: flex;
+justify-content: space-around;
+align-items: center;
+flex-wrap: wrap;
+}
+
+.activities .box-container .box {
+padding: 3rem 2rem;
+text-align: center;
+box-shadow: var(--box-shadow);
+border-radius: 2rem;
+outline: .1rem solid rgba(0, 0, 0, .1);
+outline-offset: -1rem;
+margin-bottom: 30px;
+}
+
+.activities .box-container .box:nth-child(odd) {
+background: #E9768F;
+}
+
+.activities .box-container .box:nth-child(even) {
+background: #F9BA60;
+}
+
+.activities .box-container .box img {
+height: 8rem;
+}
+
+.activities .box-container .box:hover img {
+transform: scale(1.1);
+}
+
+.activities .box-container .box h3 {
+font-size: 2.2rem;
+padding: 2rem 0;
+color: var(--black);
+}
+
+.admin-container {
+margin: 20px;
+}
+
+.admin-section {
+margin-bottom: 20px;
+}
+
+textarea {
+width: 100%;
+margin-bottom: 10px;
+}
+
+.dropzone {
+border: 2px dashed #cccccc;
+border-radius: 4px;
+padding: 20px;
+text-align: center;
+cursor: pointer;
+margin-bottom: 10px;
+}
+
+.uploaded-image {
+max-width: 100%;
+margin-top: 10px;
+}
+
+.facility-card {
+margin-bottom: 20px;
+padding: 15px;
+border: 1px solid #cccccc;
+border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+.admin-container {
+  margin: 10px;
+}
+}
+
+/* STYLE HOME PAGE HEADER*/
+header{
+  background: #E9768F;
+  background: -webkit-linear-gradient(to left, #E9768F, #F9BA60);
+  background: linear-gradient(to left, #E9768F, #F9BA60);
+}
+
+.home .header-box h1{
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.home .header-box h1 span{
+  font-weight: 700;
+}
+
+.home .header-box p{
+  line-height: 2;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.home .header-box img{
+  width: 90%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  margin-top: -70px;
+  margin-left: 70px;
+}
+
+.bunga-mekar {
+color: #B456D9;
+}
+
+.btn-join {
+background-color: #8938BF;
+color: #fff;
+border-color: #8938BF;
+outline-color: #8938BF;
+}
+
+.btn-join:hover {
+background-color: #B456D9;
+border-color: #B456D9;
+}
+
+@media screen and (max-width: 992px) {
+  header {
+      margin-bottom: 150px;
+  }
+  .home .header-box{
+      padding-top: 8rem;
+      margin-top: -200px;
+  }
+  .home .header-box img{
+      width: 500px;
+      display: block;
+      margin-inline: auto;
+      margin-block-start: 20px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  header {
+      margin-bottom: 200px;
+  }
+  .home .header-box{
+      padding-top: 8rem;
+      margin-top: -250px;
+  }
+  .home .header-box h1{
+      font-size: 3rem;
+  }
+  .home .header-box img{
+      width: 450px;
+      display: block;
+      margin-inline: auto;
+      margin-block-start: 20px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  header {
+      margin-bottom: 270px;
+  }
+  .home .header-box{
+      padding-top: 8rem;
+      margin-top: -330px;
+  }
+  .home .header-box h1{
+      font-size: 2.4rem;
+  }
+  .home .header-box p{
+      font-size: 14px;
+  }
+  .home .header-box img{
+      width: 380px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  header {
+      margin-bottom: 320px;
+  }
+  .home .header-box{
+      padding-top: 8rem;
+      margin-top: -420px;
+  }
+  .home .header-box h1{
+      font-size: 2rem;
+  }
+  .home .header-box p{
+      font-size: 12px;
+  }
+}
+
+/* STYLE PENDAFTARAN*/
+
+.daftar {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.formulir {
+  text-align: center;
+  color: #333;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.input-radio {
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #F9BA60;
+  color: #fff;
+  border-color: #F9BA60;
+  outline-color: #F9BA60;
+}
+
+.btn-primary:hover {
+  background-color: #E9768F;
+  border-color: #E9768F;
+}
+
+.tanggal-lahir {
+margin-top: 10px; 
+}
+
+.form {
+background: #E9768F;
+background: -webkit-linear-gradient(to left, #E9768F, #F9BA60);
+background: linear-gradient(to left, #E9768F, #F9BA60);
+}
+
+/* PAGE FASILITAS USER */
+/*PAGE FASILITAS*/
+
+body {
+margin: 0;
+font-family: 'Arial', sans-serif;
+}
+
+.App {
+text-align: center;
+background-color: #FFDDC1; /* Light Orange */
+color: #FF4081; /* Pink */
+}
+
+.App-header {
+background-color: #FF4081; /* Pink */
+padding: 20px;
+}
+
+.App-header h1 {
+margin: 0;
+color: white;
+}
+
+.App-header h7 {
+color: white;
+}
+
+main {
+padding: 20px;
+}
+
+.facilities-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+.facility-card {
+width: 300px;
+margin: 20px;
+padding: 20px;
+border: 1px solid #FF4081; /* Pink */
+border-radius: 10px;
+background-color: #FFF3E6; /* Light Orange */
+}
+
+.facility-card:hover {
+transform: scale(1.1);
+}
+
+footer {
+background-color: #FF4081; /* Pink */
+padding: 10px;
+position: fixed;
+bottom: 0;
+width: 100%;
+color: white;
+}
+
+.card-fasilitas {
+width: 300px;
+margin: 20px;
+padding: 30px;
+margin-top: 5%;
+border: 1px solid #FF4081; /* Pink */
+border-radius: 10px;
+background-color: #FFF3E6; /* Light Orange */
+}
+
+.card-fasilitas:hover {
+transform: scale(1.1);
+}
+
+.card-fasilitas.body {
+width: 300px;
+margin: 20px;
+padding: 20px;
+border: 1px solid #FF4081; /* Pink */
+border-radius: 10px;
+background-color: #FFF3E6; /* Light Orange */
+}
+
+.card-fasilitas.body:hover {
+transform: scale(1.1);
+}
+
+/* STYLE KURIKULUM */
+.kurikulum-background {
+  background-size: cover;
+  background-position: center;
+  height: 175vh;
+  background: #E9768F;
+  background: -webkit-linear-gradient(to left, #E9768F, #F9BA60);
+  background: linear-gradient(to left, #E9768F, #F9BA60);
+}
+
+.music-image {
+position: absolute;
+bottom: 0;
+right: 0;
+width: 125px; 
+height: auto;
+}
+
+.home .kurikulum {
+background-color: #fff;
+padding-bottom: 100px;
+}
+
+.home .kurikulum .row:nth-child(1) h1 {
+color: var(--secondary-color);
+}
+
+.home .kurikulum .row:nth-child(2) img {
+width: 100%;
+}
+
+.card-hoverable {
+transition: transform 0.3s ease;
+}
+
+.card-hoverable:hover {
+transform: translateY(-10px);
+box-shadow: 0 6px 12px #F9BA60;
+}
+
+
+.home .kurikulum .row:nth-child(1) {
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.home .kurikulum .btn-primary-left {
+  background-color: #E9768F;
+  color: #fff;
+  border-color: #E9768F;
+  outline-color: #E9768F;
+}
+
+.home .kurikulum .btn-primary-left:hover {
+  background-color: #F9BA60;
+  border-color: #F9BA60;
+}
+
+.home .kurikulum .btn-primary-right:hover {
+  background-color: #E9768F;
+  border-color: #E9768F;
+}
+
+.btn-primary-smt1 {
+  background-color: #E9768F;
+  color: #fff;
+  border-color: #E9768F;
+  outline-color: #E9768F;
+}
+
+.btn-primary-smt1:hover {
+  background-color: #F9BA60;
+  border-color: #F9BA60;
+  color: #fff;
+}
+
+.kurikulum-card {
+  margin-bottom: 20px;
+}
+
+.kurikulum-card {
+transition: transform 0.3s ease;
+}
+
+.kurikulum-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 6px 12px #333;
+}
+
+.primary-lihat {
+background-color: #E9768F;
+color: #fff;
+border-color: #E9768F;
+outline-color: #E9768F;
+}
+
+.primary-lihat:hover {
+background-color: #F9BA60;
+border-color: #F9BA60;
+color: #fff;
+}
+
+.home .kurikulum .row:nth-child(3) {
+padding-top: 40px;
+}
+
+.semester1 {
+color: var(--more-color);
+}
+
+.judul-smt {
+color: var(--more-color);
+}
+
+.centered-image {
+display: block;
+margin: auto;
+margin-left: auto;
+margin-right: auto;
+max-width: 100%;
+margin-bottom: -20px;
+}
+
+.btn-download {
+margin-top: -10px;
+}
+
+.sem {
+color: var(--more-color);
+}
+
+.primary-kembali {
+background-color: #F9BA60;
+color: #fff;
+border-color: #F9BA60;
+outline-color: #F9BA60;
+}
+
+.primary-kembali:hover {
+background-color: #E9768F;
+border-color: #E9768F;
+color: #fff;
+}
+
+.primary-back {
+background-color: #F9BA60;
+color: #fff;
+border-color: #F9BA60;
+outline-color: #F9BA60;
+}
+
+.primary-back:hover {
+background-color: #E9768F;
+border-color: #E9768F;
+color: #fff;
+}
+
+
+/* STYLE ADMIN KURIKULUM */
+.admin-kurikulum {
+color: var(--color-text);
+}
+
+/* about */
+.about {
+background-color: #e9768f;
+padding: 40px 0;
+}
+
+.about .heading {
+text-align: center;
+font-size: 3.5rem;
+color: white;
+}
+
+.about .row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.about .row .image {
+width: 40%;
+display: block;
+margin-inline: auto;
+margin-block-start: 20px;
+height: 40%;
+}
+
+.about .row .content {
+width: 45%;
+text-align: center;
+color: white;
+}
+
+.content .h3 {
+text-align: center;
+font-size: 3.9rem;
+font-weight: 900;
+}
+
+/* school-info */
+.school-info {
+/* background-image: url('src/assets/img/bg.png'); */
+text-align: center;
+background-position: center;
+background-size: cover;
+}
+
+
+/*Education Admin*/
+/* admin-education */
+.admin-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+.admin-container h1 {
+font-size: 2.5rem;
+text-align: center;
+margin-bottom: 20px;
+}
+
+.admin-education-container {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin: 20px 0;
+  text-align: center;
+  margin-left: 30px;
+  padding-left: 20px;
+}
+
+.education-card {
+background: white;
+  border-radius: 2rem;
+  box-shadow: var(--box-shadow);
+  outline: .1rem solid rgba(0, 0, 0, .1);
+  outline-offset: -1rem;
+  overflow: hidden;
+}
+
+.education-card:nth-child(odd) {
+background: #E9768F;
+}
+
+.education-card:nth-child(even) {
+background: #F9BA60;
+}
+.education-card img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+}
+
+.admin-add-education {
+margin-top: 20px;
+padding: 20px;
+background: #f9f9f9;
+border-radius: 10px;
+}
+
+.admin-add-education h2 {
+font-size: 1.8rem;
+margin-bottom: 15px;
+}
+
+.admin-add-education input,
+.admin-add-education textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+box-sizing: border-box;
+}
+
+.dropzone {
+border: 2px dashed #ccc;
+padding: 20px;
+text-align: center;
+cursor: pointer;
+}
+
+.uploaded-image {
+width: 100%;
+height: auto;
+margin-top: 10px;
+}
+
+/* Customize the button style */
+.admin-add-education button {
+padding: 10px 20px;
+font-size: 1.2rem;
+background-color: #28a745; /* Green color */
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.admin-add-education button:hover {
+background-color: #218838; /* Darker green color on hover */
+}
+
+/*teacher*/
+/* admin-teachers */
+.admin-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+.admin-container h1 {
+font-size: 2.5rem;
+text-align: center;
+margin-bottom: 20px;
+}
+
+.admin-teachers-container {
+display: flex;
+}
+
+.teacher-card {
+background: var(--white);
+padding: 5rem 2rem;
+text-align: center;
+box-shadow: var(--box-shadow);
+border-radius: 2rem;
+padding: 3rem 2rem;
+text-align: center;
+box-shadow: var(--box-shadow);
+border-radius: 2rem;
+outline: .1rem solid rgba(0, 0, 0, .1);
+outline-offset: -1rem;
+}
+
+.teacher-card img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+}
+
+.admin-add-teacher {
+margin-top: 20px;
+padding: 20px;
+background: #f9f9f9;
+border-radius: 10px;
+}
+
+.admin-add-teacher h2 {
+font-size: 1.8rem;
+margin-bottom: 15px;
+}
+
+.admin-add-teacher input,
+.admin-add-teacher textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+box-sizing: border-box;
+}
+
+.dropzone {
+border: 2px dashed #ccc;
+padding: 20px;
+text-align: center;
+cursor: pointer;
+}
+
+.uploaded-image {
+width: 100%;
+height: auto;
+margin-top: 10px;
+}
+
+/* Customize the button style */
+.admin-add-teacher button {
+padding: 10px 20px;
+font-size: 1.2rem;
+background-color: #28a745; /* Green color */
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.admin-add-teacher button:hover {
+background-color: #218838; /* Darker green color on hover */
+}
+
+.teacher-card .social-icons {
+display: flex;
+justify-content: space-around;
+margin-top: 10px;
+}
+
+.teacher-card .social-icons a {
+  font-size: 1.5rem;
+  color: palevioletred;
+  text-decoration: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  line-height: 2.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.3rem;
+  background-color:white; /* Ganti dengan warna pink yang sesuai */
+  color: var(--white);
+  border: 0.1rem solid palevioletred;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  box-shadow: var(--box-shadow); /* Pastikan variable box-shadow telah didefinisikan sebelumnya */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teacher-card .social-icons a:hover {
+color: #E9768F; /* Change to your preferred hover color */
+}
+
+/*activities*/
+.admin-container {
+margin-top: 50px;
+}
+
+.admin-container .custom-button {
+width: 10%;
+font-size: 14px;
+padding: 5px 10px;
+}
+
+.admin-activities-container {
+display: flex;
+justify-content: space-around;
+align-items: center;
+flex-wrap: wrap;
+}
+
+.admin-activities-container .activity-card {
+padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  border-radius: 2rem;
+  outline: .1rem solid rgba(0, 0, 0, .1);
+  outline-offset: -1rem;
+  margin-bottom: 30px;
+}
+
+.admin-activities-container .activity-card:nth-child(odd) {
+background: #E9768F;
+}
+
+.admin-activities-container .activity-card:nth-child(even) {
+background: #F9BA60;
+}
+.admin-activities-container .activity-card img {
+height: 10rem;
+}
+
+.admin-activities-container .activity-card:hover img {
+transform: scale(1.1);
+}
+
+.admin-activities-container .activity-card h3 {
+font-size: 2.2rem;
+padding: 2rem 0;
+color: var(--black);
+}
+
+.admin-add-activity {
+text-align: center;
+}
+
+.admin-add-activity h2 {
+font-size: 2rem;
+}
+
+.admin-add-activity .dropzone {
+margin: 20px 0;
+border: 2px dashed #ccc;
+padding: 20px;
+cursor: pointer;
+background: #fafafa;
+}
+
+.admin-add-activity .dropzone p {
+margin: 0;
+}
+
+.admin-add-activity .uploaded-image {
+margin-top: 20px;
+max-width: 100%;
+height: auto;
+}
+
+.admin-container {
+padding: 20px;
+background-color: #f4f4f4;
+}
+
+/* admin-section (common style for each admin section) */
+.admin-section {
+background-color: #ffffff;
+padding: 20px;
+margin: 20px 0;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Textarea */
+textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+/* dropzone */
+.dropzone {
+border: 2px dashed #cccccc;
+border-radius: 4px;
+padding: 20px;
+text-align: center;
+cursor: pointer;
+margin-bottom: 10px;
+}
+
+/* uploaded-image */
+.uploaded-image {
+max-width: 100%;
+height: auto;
+margin-top: 10px;
+}
+
+/* Card */
+.facility-card {
+background-color: #ffffff;
+padding: 20px;
+margin-bottom: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-container {
+margin: 20px;
+}
+
+.admin-section {
+margin-bottom: 20px;
+}
+
+textarea {
+width: 100%;
+margin-bottom: 10px;
+}
+
+.dropzone {
+border: 2px dashed #cccccc;
+border-radius: 4px;
+padding: 20px;
+text-align: center;
+cursor: pointer;
+margin-bottom: 10px;
+}
+
+.uploaded-image {
+max-width: 100%;
+margin-top: 10px;
+}
+
+.facility-card {
+margin-bottom: 20px;
+padding: 15px;
+border: 1px solid #cccccc;
+border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+.admin-container {
+  margin: 10px;
+}
+}
+
+.admin-container {
+text-align: center;
+padding: 20px;
+background-color: #FFF3E6;
+}
+
+.admin-facilities-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+margin-top: 20px;
+}
+
+.admin-facilities-container .facility-card {
+width: 300px;
+margin: 20px;
+width: 300px;
+margin: 20px;
+padding: 20px;
+border: 1px solid #FF4081; /* Pink */
+border-radius: 10px;
+background-color: #FFF3E6; /* Light Orange */
+}
+
+.admin-add-facility {
+margin-top: 50px;
+}
+
+.dropzone {
+border: 2px dashed #ccc;
+border-radius: 4px;
+padding: 20px;
+cursor: pointer;
+text-align: center;
+margin-top: 20px;
+}
+
+.uploaded-image {
+width: 100%;
+margin-top: 10px;
+border-radius: 4px;
+margin-bottom: 20%;
+}
+
+.delete-image {
+background-color: #dc3545;
+color: white;
+padding: 5px 10px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.admin-add-facility textarea {
+width: 100%;
+padding: 10px;
+margin-top: 10px;
+box-sizing: border-box;
+}
+
+/*FOOTER*/
+.footer {
+background: palevioletred;
+padding: 2rem 0;
+color: #fff;
+}
+
+.footer .box-container {
+display: flex; 
+justify-content: space-between;
+gap: 1.8rem;
+flex-wrap: wrap; 
+margin-left: 5%;
+margin-bottom: 20px; 
+}
+
+.footer .box-container .box {
+width: calc(30% - 0.75rem);
+margin-left: 30px;
+}
+
+.footer .box-container .box h3 {
+font-size: 1.8rem; 
+color: #F9BA60; 
+padding: 1rem 0;
+font-weight: 500px;
+}
+
+.footer .box-container .box p,
+.footer .box-container .box a {
+display: flex;
+flex-direction: row; 
+justify-content: space-between; 
+align-items: left; 
+text-align: justify;
+font-size: 1rem;
+color: #fff;
+line-height: 1.5;
+width: 100%; 
+display: block;
+color: var(--white);
+padding: 0.25rem 0; 
+text-decoration: none;
+}
+
+.footer .box-container .box a i {
+margin-right: 0.2rem; 
+color: #F9BA60;
+text-decoration: none;
+}
+
+
+.footer .box-container .box a:hover {
+color: #F9BA60;
+}
+
+
+.footer .box-container .box a:hover {
+color: #F9BA60;
+}
+
+.footer .credit {
+padding-top: 1rem;
+border-top: 0.1rem solid rgba(255, 255, 255, 0.3);
+text-align: center;
+font-size: 1.1rem;
+}
+
+.footer .credit span {
+color: #F9BA60; 
+}
+
+/*CONTACT*/
+.contact .icons-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); 
+gap: 1.5rem;
+justify-content: space-around;
+align-items: center;
+flex-wrap: wrap;
+margin-left: 5%;
+margin-right: 5%;
+margin-bottom: 5%; 
+}
+
+.contact .icons-container .icons {
+padding: 1.5rem 1rem; 
+text-align: center;
+box-shadow: var(--box-shadow);
+border-radius: 1.5rem; 
+outline: 0.1rem solid rgba(0, 0, 0, 0.1);
+outline-offset: -0.5rem; 
+margin-bottom: 20px;
+box-shadow: 0 2px 5px #333;
+}
+
+.contact .icons-container .icons i {
+font-size: 2rem; 
+height: 4rem;
+width: 4rem;
+color: #F9BA60;
+line-height: 4rem;
+border-radius: 50%;
+background: var(--orange);
+}
+.contact .icons-container .icons i:hover {
+color:palevioletred;
+}
+
+.contact .icons-container .icons h3 {
+font-size: 1rem; 
+padding: 0.5rem 0; 
+color: var(--black);
+}
+
+.contact .icons-container .icons p {
+font-size: 0.9rem; 
+line-height: 1.5;
+color: var(--light-color);
+}
+
+/* end */
