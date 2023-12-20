@@ -19,14 +19,16 @@ const Login = () => {
       // Check if login was successful
       if (response.data.success) {
         console.log('Login successful');
-        navigate('/admin');
         login(); // Call the login function from useAuth
+        navigate('/admin');
       } else {
         // Handle unsuccessful login
         console.log('Invalid credentials');
       }
     } catch (error) {
+      alert("Username atau Password yang Anda Masukkan Salah")
       console.log(error);
+
     }
   };
 
