@@ -33,10 +33,9 @@ function ActivitiesAdmin() {
           "Content-type": "multipart/form-data",
         },
       });
-      setTitle('');
-      setFile(null);
-      setPreview('');
-      alert("Galeri telah ditambahkan")
+      alert("Galeri telah ditambahkan");
+      window.location.reload();
+
     } catch (error) {
       console.log(error);
     }

@@ -75,7 +75,7 @@ function App() {
 
         {/* USER */}
         <Route path="/kurikulum" element={<KurikulumUser/>}/>
-        <Route path="/kurikulum/:month" element={<KurikulumDetail/>}/>
+        <Route path="/kurikulum/:id" element={<KurikulumDetail/>}/>
         <Route path="/" element={<Home/>}/>
         <Route path="pendaftaran" element={<Pendaftaran/>}/>
         <Route path="fasilitas" element={<Fasilitas/>}/>

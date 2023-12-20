@@ -3,11 +3,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
-  const [asd,setGender] = useState("");
-
   const [title, setTitle] = useState("");
   const [file, setFile] = useState("");
   const [preview, setPreview] = useState("");
+  const [asd, setGender] = useState("");
+
   const navigate = useNavigate();
 
   const loadImage = (e) => {

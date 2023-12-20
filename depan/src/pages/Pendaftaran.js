@@ -53,17 +53,8 @@ const Pendaftaran = () => {
         },
       });
       alert("Pendaftaran Berhasil!");
-      setAgama('');
-      setAlamat('');
-      setAyah('');
-      setIbu('');
-      setTmpt('');
-      setDate('');
-      setNIK('');
-      setTitle('');
-      setHP('');
-      // setFile('');
-      navigate("/pendaftaran");
+      window.location.reload();
+
     } catch (error) {
       console.log(error);
     }

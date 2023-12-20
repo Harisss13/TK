@@ -199,7 +199,7 @@ export const loginAdmin = async (req, res) => {
 // POST Aktivitas
 export const saveAktiv = (req, res)=>{
     if(req.files === null) return res.status(400).json({msg: "No File Uploaded"});
-    const gender = req.body.gender;
+
     const name = req.body.title;
     const file = req.files.file;
     const fileSize = file.data.length;
@@ -313,10 +313,14 @@ export const updateAktiv = async(req, res)=>{
     }
 }
 
-// POST Aktivitas
+// POST Kurikulum
 export const saveKuri = (req, res)=>{
     if(req.files === null) return res.status(400).json({msg: "No File Uploaded"});
+
+    const semester= req.body.semester;
     const name = req.body.title;
+    const bulan = req.body.bulan;
+
     const file = req.files.file;
     const fileSize = file.data.length;
     const ext = path.extname(file.name);
@@ -324,18 +328,31 @@ export const saveKuri = (req, res)=>{
     const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
     const allowedType = ['.png','.jpg','.jpeg'];
 
+    const file2 = req.files.file2;
+    const fileSize2 = file2.data.length;
+    const ext2 = path.extname(file2.name);
+    const fileName2 = file2.md5 + ext;
+    const url2 = `${req.protocol}://${req.get("host")}/images/${fileName2}`;
+    const allowedType2 = ['.png','.jpg','.jpeg'];
+
     if(!allowedType.includes(ext.toLowerCase())) return res.status(422).json({msg: "Invalid Images"});
     if(fileSize > 5000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
+    if(fileSize2 > 5000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
 
     file.mv(`./public/images/${fileName}`, async(err)=>{
         if(err) return res.status(500).json({msg: err.message});
         try {
-            await Kurikulum.create({name: name, image: fileName, url: url});
+            await Kurikulum.create({
+                tema: name, semester:semester, bulan: bulan,
+                kegiatan: fileName, kalender: fileName2,
+                url: url, url2: url2});
             res.status(201).json({msg: "Product Created Successfuly"});
         } catch (error) {
             console.log(error.message);
         }
     })
+
+    file2.mv(`./public/images/${fileName2}`)
 
 }
 // GET
