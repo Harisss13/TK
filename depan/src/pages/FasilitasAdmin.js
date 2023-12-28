@@ -28,7 +28,7 @@ const FasilitasAdmin = () => {
         <Card className='flex'>
           <img src={Img1} alt="hero-img" />
           <Card.Body>
-            <Button variant="primary">Gedung Sekolah</Button>
+          Gedung Sekolah
             <Card.Text>
               <br/>
               Tempat berbagai kegiatan pendidikan dan non-pendidikan dijalankan.
@@ -39,7 +39,7 @@ const FasilitasAdmin = () => {
         <Card>
           <img src={Img2} alt="hero-img" />
           <Card.Body>
-            <Button variant="primary">Ruangan Belajar</Button>
+          Ruangan Belajar
             <Card.Text>
             <br/>
               Ruangan Belajar adalah tempat nyaman untuk belajar dan bermain.
@@ -50,7 +50,7 @@ const FasilitasAdmin = () => {
         <Card>
           <img src={Img3} alt="hero-img" />
           <Card.Body>
-            <Button variant="primary">Taman Bermain</Button>
+          Taman Bermain
             <Card.Text>
             <br/>
               Area outdoor dengan permainan yang aman dan mendidik.
@@ -61,7 +61,7 @@ const FasilitasAdmin = () => {
         <Card>
           <img src={Img4} alt="hero-img" />
           <Card.Body>
-            <Button variant="primary">Lapangan Olahraga</Button>
+          Lapangan Olahraga
             <Card.Text>
             <br/>
               Lapangan Olahraga adalah ruang terbuka untuk kegiatan olahraga dan rekreasi fisik.
@@ -72,7 +72,7 @@ const FasilitasAdmin = () => {
         <Card>
           <img src={Img5} alt="hero-img" />
           <Card.Body>
-            <Button variant="primary">Kantin</Button>
+          Kantin
             <Card.Text>
             <br/>
               Kantin adalah tempat yang menyediakan makanan untuk anak-anak.

@@ -45,7 +45,7 @@ import axios from 'axios';
                   <Card.Title className={`semester${item.semester} judul-smt fw-bold`}>{item.semester}</Card.Title>
                   <Card.Title className="fw-bold">{item.bulan}</Card.Title>
                   <Card.Text>Tema: {item.tema}</Card.Text>
-                  <Button className="primary-lihat" as={Link} to={`kurikulum/${item.id}`} variant={`primary-smt${item.semester}`}>
+                  <Button className="primary-lihat" as={Link} to={`${item.id}`} variant={`primary-smt${item.semester}`}>
                     Lihat
                   </Button>
                   <img className="music-image" src={Music} alt="music-img"/>

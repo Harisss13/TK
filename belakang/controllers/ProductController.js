@@ -5,6 +5,8 @@ import Daftar2Model from "../models/Daftar2Model.js";
 import LOGIN from "../models/LoginModel.js";
 import Aktiv from "../models/AktivitasModel.js";
 import Kurikulum from "../models/KurikulumModel.js";
+import Fasil from "../models/FasilitasModel.js";
+
 
 
 // GET
@@ -91,7 +93,7 @@ export const saveProducts3 = (req, res)=>{
                 namaLengkap: nama,
                 gender:gender,
                 NIK:NIK, 
-                agama:agama, 
+                agama:agama,
                 ayah:ayah, 
                 ibu:ibu, 
                 tmpt_lahir:tmpt_lahir,
@@ -336,8 +338,8 @@ export const saveKuri = (req, res)=>{
     const allowedType2 = ['.png','.jpg','.jpeg'];
 
     if(!allowedType.includes(ext.toLowerCase())) return res.status(422).json({msg: "Invalid Images"});
-    if(fileSize > 5000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
-    if(fileSize2 > 5000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
+    if(fileSize > 50000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
+    if(fileSize2 > 50000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
 
     file.mv(`./public/images/${fileName}`, async(err)=>{
         if(err) return res.status(500).json({msg: err.message});
@@ -436,6 +438,124 @@ export const updateKuri = async(req, res)=>{
     
     try {
         await Kurikulum.update({name: name, image: fileName, url: url},{
+            where:{
+                id: req.params.id
+            }
+        });
+        res.status(200).json({msg: "Product Updated Successfuly"});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+// FASILITAS
+export const saveFasil = (req, res)=>{
+    if(req.files === null) return res.status(400).json({msg: "No File Uploaded"});
+
+    const desc = req.body.desc;
+    const name = req.body.title;
+    const file = req.files.file;
+    const fileSize = file.data.length;
+    const ext = path.extname(file.name);
+    const fileName = file.md5 + ext;
+    const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
+    const allowedType = ['.png','.jpg','.jpeg'];
+
+    if(!allowedType.includes(ext.toLowerCase())) return res.status(422).json({msg: "Invalid Images"});
+    if(fileSize > 5000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
+
+    file.mv(`./public/images/${fileName}`, async(err)=>{
+        if(err) return res.status(500).json({msg: err.message});
+        try {
+            await Fasil.create({name: name, image: fileName, url: url});
+            res.status(201).json({msg: "Product Created Successfuly"});
+        } catch (error) {
+            console.log(error.message);
+        }
+    })
+
+}
+// GET
+export const getFasil = async(req, res)=>{
+    try {
+        const response = await Fasil.findAll();
+        res.json(response);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+// GET by id
+export const getFasilById = async(req, res)=>{
+    try {
+        const response = await Fasil.findOne({
+            where:{
+                id : req.params.id
+            }
+        });
+        res.json(response);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+// DELETE Aktivitas
+export const deleteFasil = async(req, res)=>{
+    const product = await Fasil.findOne({
+        where:{
+            id : req.params.id
+        }
+    });
+    if(!product) return res.status(404).json({msg: "No Data Found"});
+
+    try {
+        const filepath = `./public/images/${product.image}`;
+        fs.unlinkSync(filepath);
+        await Fasil.destroy({
+            where:{
+                id : req.params.id
+            }
+        });
+        res.status(200).json({msg: "Product Deleted Successfuly"});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+// UPDATE Aktivitas
+export const updateFasil = async(req, res)=>{
+    const product = await Fasil.findOne({
+        where:{
+            id : req.params.id
+        }
+    });
+    if(!product) return res.status(404).json({msg: "No Data Found"});
+    
+    let fileName = "";
+    if(req.files === null){
+        fileName = product.image;
+    }else{
+        const file = req.files.file;
+        const fileSize = file.data.length;
+        const ext = path.extname(file.name);
+        fileName = file.md5 + ext;
+        const allowedType = ['.png','.jpg','.jpeg'];
+
+        if(!allowedType.includes(ext.toLowerCase())) return res.status(422).json({msg: "Invalid Images"});
+        if(fileSize > 5000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
+
+        const filepath = `./public/images/${product.image}`;
+        fs.unlinkSync(filepath);
+
+        file.mv(`./public/images/${fileName}`, (err)=>{
+            if(err) return res.status(500).json({msg: err.message});
+        });
+    }
+    const name = req.body.title;
+    const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
+    
+    try {
+        await Fasil.update({name: name, image: fileName, url: url},{
             where:{
                 id: req.params.id
             }

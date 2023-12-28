@@ -78,7 +78,7 @@ function ActivitiesAdmin() {
 
 
         <br/>
-        <Row className="admin-activities-container">
+    <Row className="admin-activities-container">
       {aktiv.map((activity) => (
         <Col key={activity.id} xs={12} md={6} lg={4}>
           <Card className="activity-card text-center">

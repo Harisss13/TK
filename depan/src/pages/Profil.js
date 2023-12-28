@@ -15,10 +15,27 @@ import Image16 from '../img/teacher4.png';
 import Image17 from '../img/about-pic.png';
 import Footer from './Footer';
 import NavbarComponent from './NavbarComponent';
-
+import { Card, Button, Row, Col } from 'react-bootstrap';
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 const Profil = () => {
+
+    // GET Aktiv
+    const [aktiv, setAktiv] = useState([]);
+
+    useEffect(() => {
+      getAktiv();
+    }, []);
+  
+    const getAktiv = async () => {
+      const response = await axios.get("http://localhost:4000/aktiv");
+      setAktiv(response.data);
+    };
+  
+
     return (
     <div>
         {/*tabel identitas sekolah start*/}
@@ -124,33 +141,25 @@ const Profil = () => {
 
         {/* activities section starts */}
         <section className="activities" data-aos="fade-up" data-aos-duration="1000">
-          <h1 className="heading-about text-center mb-5">Our <span>Activities</span></h1>
-          <div className="box-container" data-aos="fade-up" data-aos-duration="1000">
-            <div className="box" data-aos="fade-up" data-aos-duration="2000">
-              <img src={Image8} alt="hero-img" />
-              <h3>Belajar&Bermain</h3>
-            </div>
-            <div className="box" data-aos="fade-up" data-aos-duration="2000">
-              <img src={Image9} alt="hero-img" />
-              <h3>Olahraga&Bermain</h3>
-            </div>
-            <div className="box" data-aos="fade-up" data-aos-duration="2000">
-              <img src={Image10} alt="hero-img" />
-              <h3>Membuat Karya</h3>
-            </div>
-            <div className="box" data-aos="fade-up" data-aos-duration="2000">
-              <img src={Image11} alt="hero-img" />
-              <h3>Pramuka Siaga </h3>
-            </div>
-            <div className="box" data-aos="fade-up" data-aos-duration="2000">
-              <img src={Image12} alt="hero-img" />
-              <h3>Pelepasan Wisuda</h3>
-            </div>
-            <div className="box" data-aos="fade-up" data-aos-duration="2000">
-              <img src={Image13} alt="hero-img" />
-              <h3>Simulasi Manasik</h3>
-            </div>
-          </div>
+        <div className='d-flex justify-content-center' >
+        <h1 className="heading-about text-center mb-5">Aktivitas</h1>
+
+        </div>
+
+
+        <br/>
+    <Row className="admin-activities-container">
+      {aktiv.map((activity) => (
+        <Col key={activity.id} xs={12} md={6} lg={4}>
+          <Card className="activity-card text-center">
+            <Card.Img variant="top" src={activity.url} alt="activity-img" className="img-fluid" />
+            <Card.Body>
+              <Card.Title>{activity.name}</Card.Title>
+            </Card.Body>
+          </Card>
+        </Col>
+      ))}
+    </Row>
         </section>
         {/* activities section ends */}
         <Footer/>

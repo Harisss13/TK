@@ -45,10 +45,10 @@ function DaftarList() {
     <Layout>
       <div className="column mt-5">
       <div className="column">
-        <Link to={`add`} className="button is-success m-5">
+        {/* <Link to={`add`} className="button is-success m-5">
           Add New
-        </Link>
-        <button className="button is-danger m-5" onClick={keluar}>Logout</button>
+        </Link> */}
+        {/* <button className="button is-danger m-5" onClick={keluar}>Logout</button> */}
         <table className="table table-responsive">
           <thead>
             <tr>
@@ -89,13 +89,13 @@ function DaftarList() {
                     to={`edit/${user.id}`}
                     className="button is-small is-info mr-2"
                   >
-                    Edit
+                    Terima Pendaftaran
                   </Link>
                   <button
                     onClick={() => deleteUser(user.id)}
                     className="button is-small is-danger"
                   >
-                    Delete
+                    Tolak Pendaftaran
                   </button>
                 </td>
               </tr>

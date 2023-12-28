@@ -23,6 +23,14 @@ import {
     getKuriById,
     deleteKuri,
     updateKuri,
+
+    // Fasilitas
+
+    getFasil,
+    getFasilById,
+    saveFasil,
+    updateFasil,
+    deleteFasil,
 } from "../controllers/ProductController.js";
 
 const router = express.Router();
@@ -50,6 +58,14 @@ router.get('/kuri/:id', getKuriById);
 router.post('/kuri', saveKuri);
 router.patch('/kuri/:id', updateKuri);
 router.delete('/kuri:id', deleteKuri);
+
+
+// Fasilitas
+router.get('/fasil', getFasil);
+router.get('/fasil/:id', getFasilById);
+router.post('/fasil', saveFasil);
+router.patch('/fasil/:id', updateFasil);
+router.delete('/fasil:id', deleteFasil);
 
 // LOGIN
 // router.post('/loginadmin', loginAdmin);
